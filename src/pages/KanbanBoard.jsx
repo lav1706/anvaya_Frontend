@@ -42,7 +42,6 @@ const KanbanBoard = () => {
           </Link>
         </aside>
 
-        {/* Kanban Board */}
         <main className="bg-white rounded-lg shadow-md p-6 flex-1 space-y-6 ">
           <h1 className="text-3xl font-bold text-indigo-800 mb-6">
             Lead Management
@@ -64,7 +63,6 @@ const KanbanBoard = () => {
   );
 };
 
-// === Status Column Component ===
 const StatusColumn = ({ status, leads }) => {
   const { setNodeRef } = useDroppable({ id: status });
 
@@ -85,7 +83,6 @@ const StatusColumn = ({ status, leads }) => {
   );
 };
 
-// === Lead Card Component ===
 const LeadCard = ({ lead }) => {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({

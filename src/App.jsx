@@ -8,9 +8,9 @@ import LeadList from "./pages/LeadList";
 import NewLead from "./pages/NewLead";
 import Agents from "./pages/Agents";
 import Reports from "./pages/Reports";
-import KanbanBoard from "./pages/Kanbanboard";
 import AddAgents from "./pages/AddAgents";
 import AgentsDetails from "./pages/AgentsDetails";
+import KanbanBoard from "./pages/Kanbanboard";
 
 function App() {
   return (
