@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Sidebar = ({ isOpen, onClose }) => {
   return (
     <>
-      {/* Overlay on mobile when sidebar open */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden transition-opacity ${
           isOpen

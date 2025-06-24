@@ -38,8 +38,7 @@ const CommentProvider = ({ children }) => {
       const res = await axiosInstance.post(`/comment/${userId}/${leadId}`, {
         commentText: commentText,
       });
-      console.log(leadId);
-      console.log(res);
+
       setCommentList((prev) => [...prev, res.data.comment]);
       setTrigger((pre) => pre + 1);
     } catch (error) {

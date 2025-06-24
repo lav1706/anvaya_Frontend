@@ -54,7 +54,6 @@ const NewLead = () => {
   const handleAddTag = async () => {
     if (!newTagName.trim()) return;
 
-    // Check if tag already exists (case-insensitive)
     const isDuplicate = tags.some(
       (tag) => tag.name.toLowerCase() === newTagName.trim().toLowerCase()
     );
@@ -209,7 +208,6 @@ const NewLead = () => {
                     </div>
                   ))}
 
-                  {/* ➕ Add New Tag Button */}
                   <button
                     type="button"
                     onClick={() => setShowAddTagForm(true)}
@@ -218,7 +216,6 @@ const NewLead = () => {
                     + Add Tag
                   </button>
 
-                  {/* 📝 Show Tag Input Form */}
                   {showAddTagForm && (
                     <div className="flex gap-2 mt-2 w-full">
                       <input
@@ -244,7 +241,6 @@ const NewLead = () => {
             </div>
           </div>
 
-          {/* Submit Button */}
           <div className="pt-4">
             <button
               type="submit"

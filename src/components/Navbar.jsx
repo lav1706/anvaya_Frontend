@@ -11,7 +11,7 @@ const Navbar = ({ onMenuClick }) => {
         <h2 className="text-3xl font-bold hidden md:block">
           Make Sales Easy...
         </h2>
-        {/* Hamburger menu button only visible on mobile */}
+
         <button
           className="md:hidden p-2 rounded hover:bg-white hover:bg-opacity-20 transition"
           onClick={onMenuClick}
