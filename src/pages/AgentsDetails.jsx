@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useAgent } from "../context/agentContext";
 
 const AgentsDetails = () => {
   const { agentId } = useParams();
@@ -10,24 +11,16 @@ const AgentsDetails = () => {
   const [editMode, setEditMode] = useState(false);
   const [editData, setEditData] = useState({ name: "", email: "" });
 
+  const { agents } = useAgent();
+
   useEffect(() => {
-    // Simulated fetch
-    const agentData = {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-    };
-
-    const agentLeads = [
-      { id: 101, name: "Lead 1", status: "New", priority: "High" },
-      { id: 102, name: "Lead 2", status: "Qualified", priority: "Low" },
-      { id: 103, name: "Lead 3", status: "Contacted", priority: "Medium" },
-    ];
-
-    setAgent(agentData);
-    setEditData({ name: agentData.name, email: agentData.email });
-    setLeads(agentLeads);
-  }, [agentId]);
+    const selectedAgent = agents.find((ag) => ag.id === agentId);
+    if (selectedAgent) {
+      setAgent(selectedAgent);
+      setEditData({ name: selectedAgent.name, email: selectedAgent.email });
+      setLeads(selectedAgent.leads || []);
+    }
+  }, [agentId, agents]);
 
   const handleEditChange = (field, value) => {
     setEditData({ ...editData, [field]: value });
@@ -35,8 +28,9 @@ const AgentsDetails = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (!editData.name.trim() || !editData.email.trim())
+    if (!editData.name.trim() || !editData.email.trim()) {
       return alert("All fields required");
+    }
     setAgent(editData);
     setEditMode(false);
   };
@@ -48,6 +42,14 @@ const AgentsDetails = () => {
       : true;
     return statusMatch && priorityMatch;
   });
+
+  if (!agent?.name) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-xl text-gray-600">Loading agent data...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-cyan-100 p-6">
