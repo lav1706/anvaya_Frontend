@@ -14,7 +14,6 @@ src/
 ├── context/            # Global context (LeadContext, AgentContext)
 ├── App.jsx             # Main app structure
 ├── main.jsx            # Entry point
-├── routes.jsx          # Page routing
 ```
 
 ---
