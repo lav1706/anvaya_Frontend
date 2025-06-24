@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLead } from "../context/leadContext";
 import { useAgent } from "../context/agentContext";
+import { toast } from "react-toastify";
 
 const LeadList = () => {
   const { leads = [], deleteLead } = useLead();
@@ -35,6 +36,7 @@ const LeadList = () => {
 
   const handleDelete = async (id) => {
     console.log("Deleting lead ID:", id);
+    toast.success("Lead Deleted successfully!");
     await deleteLead(id);
   };
 

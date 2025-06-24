@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLead } from "../context/leadContext";
 import { useAgent } from "../context/agentContext";
 import { useTag } from "../context/tagContext";
+import { toast } from "react-toastify";
 
 const NewLead = () => {
   const { addLead } = useLead();
@@ -48,6 +49,7 @@ const NewLead = () => {
     e.preventDefault();
     console.log("Lead submitted:", leadData);
     addLead(leadData);
+    toast.success("Lead Added successfully!");
     cleanForm();
   };
 
@@ -64,6 +66,7 @@ const NewLead = () => {
     }
 
     await addTag(newTagName);
+    toast.success("Tag Added successfully!");
     setNewTagName("");
     setShowAddTagForm(false);
   };

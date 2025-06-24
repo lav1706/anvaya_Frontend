@@ -6,6 +6,7 @@ import { LeadProvider } from "./context/leadContext.jsx";
 import { AgentProvider } from "./context/agentContext.jsx";
 import CommentProvider from "./context/CommentContext.jsx";
 import TagProvider from "./context/tagContext.jsx";
+import "react-toastify/dist/ReactToastify.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

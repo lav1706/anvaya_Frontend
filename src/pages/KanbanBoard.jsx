@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
 import { Link } from "react-router-dom";
 import { useLead } from "../context/leadContext";
+import { toast } from "react-toastify";
 
 const statuses = ["New", "Contacted", "Qualified", "Proposal Sent", "Closed"];
 
@@ -27,6 +28,7 @@ const Kanbanboard = () => {
           l._id === active.id ? { ...l, status: newStatus } : l
         );
         setLead(updatedLeads);
+        toast.success("Lead status Updated successfully!");
       }
     }
   };

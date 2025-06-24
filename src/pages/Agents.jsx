@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAgent } from "../context/agentContext";
+import { toast } from "react-toastify";
 
 const Agents = () => {
   const { agents, deleteAgent } = useAgent();
 
   const handleDelete = (id) => {
     deleteAgent(id);
+    toast.error("Agent Deleted successfully!");
   };
 
   return (

@@ -11,6 +11,7 @@ import Reports from "./pages/Reports";
 import AddAgents from "./pages/AddAgents";
 import AgentsDetails from "./pages/AgentsDetails";
 import KanbanBoard from "./pages/KanbanBoard";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/agents" element={<AgentsDetails />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

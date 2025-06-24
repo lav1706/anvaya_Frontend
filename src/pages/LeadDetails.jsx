@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useLead } from "../context/leadContext";
 import { useComment } from "../context/CommentContext";
+import { toast } from "react-toastify";
 
 const LeadDetails = () => {
   const { id } = useParams();
@@ -49,6 +50,7 @@ const LeadDetails = () => {
 
   const handleEditChange = (field, value) => {
     setEditData({ ...editData, [field]: value });
+    toast.success("Lead Updated successfully!");
   };
 
   const handleSaveEdit = () => {
@@ -78,9 +80,11 @@ const LeadDetails = () => {
       await addComment(id, newComment);
       const updatedComments = await commentByLead(id);
       setCommentList(updatedComments);
+      toast.success("Comment Added successfully!");
       setNewComment("");
     } catch (error) {
       console.error("Failed to submit comment:", error);
+      toast.error("Comment not added");
     }
   };
 
@@ -90,8 +94,10 @@ const LeadDetails = () => {
 
       const updatedComments = await commentByLead(selectedLead._id);
       setCommentList(updatedComments);
+      toast.success("Comment Deleted successfully!");
     } catch (error) {
       console.error("Failed to delete comment:", error);
+      toast.error("Comment not Deleted");
     }
   };
 

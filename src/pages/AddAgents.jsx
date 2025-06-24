@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAgent } from "../context/agentContext";
-
+import { toast } from "react-toastify";
 const AddAgents = () => {
   const { addAgents } = useAgent();
   const [name, setName] = useState("");
@@ -12,6 +12,7 @@ const AddAgents = () => {
     const payload = { name, email };
     console.log("Agent submitted:", payload);
     addAgents(payload);
+    toast.success("Agent added successfully!");
     setName("");
     setEmail("");
   };
