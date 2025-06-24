@@ -5,7 +5,7 @@ import { useLead } from "../context/leadContext";
 
 const statuses = ["New", "Contacted", "Qualified", "Proposal Sent", "Closed"];
 
-const KanbanBoard = () => {
+const Kanbanboard = () => {
   const { leads, updateLeadStatus } = useLead();
   const [lead, setLead] = useState(leads);
 
@@ -109,4 +109,4 @@ const LeadCard = ({ lead }) => {
   );
 };
 
-export default KanbanBoard;
+export default Kanbanboard;
