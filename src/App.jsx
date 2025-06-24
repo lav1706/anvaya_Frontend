@@ -10,7 +10,7 @@ import Agents from "./pages/Agents";
 import Reports from "./pages/Reports";
 import AddAgents from "./pages/AddAgents";
 import AgentsDetails from "./pages/AgentsDetails";
-import Kanbanboard from "./pages/Kanbanboard";
+import KanbanBoard from "./pages/KanbanBoard";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           <Route path="/new-lead" element={<NewLead />} />
           <Route path="/agent" element={<Agents />} />
           <Route path="/new-agent" element={<AddAgents />} />
-          <Route path="/status" element={<Kanbanboard />} />
+          <Route path="/status" element={<KanbanBoard />} />
           <Route path="/agents" element={<AgentsDetails />} />
         </Routes>
       </BrowserRouter>
